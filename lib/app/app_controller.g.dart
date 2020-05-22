@@ -9,39 +9,42 @@ part of 'app_controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$AppController on _AppControllerBase, Store {
-  final _$valueAtom = Atom(name: '_AppControllerBase.value');
+  final _$themeAppAtom = Atom(name: '_AppControllerBase.themeApp');
 
   @override
-  int get value {
-    _$valueAtom.reportRead();
-    return super.value;
+  IThemeAppInterface get themeApp {
+    _$themeAppAtom.reportRead();
+    return super.themeApp;
   }
 
   @override
-  set value(int value) {
-    _$valueAtom.reportWrite(value, super.value, () {
-      super.value = value;
+  set themeApp(IThemeAppInterface value) {
+    _$themeAppAtom.reportWrite(value, super.themeApp, () {
+      super.themeApp = value;
     });
   }
 
-  final _$_AppControllerBaseActionController =
-      ActionController(name: '_AppControllerBase');
+  final _$getThemeDataAsyncAction =
+      AsyncAction('_AppControllerBase.getThemeData');
 
   @override
-  void increment() {
-    final _$actionInfo = _$_AppControllerBaseActionController.startAction(
-        name: '_AppControllerBase.increment');
-    try {
-      return super.increment();
-    } finally {
-      _$_AppControllerBaseActionController.endAction(_$actionInfo);
-    }
+  Future getThemeData() {
+    return _$getThemeDataAsyncAction.run(() => super.getThemeData());
+  }
+
+  final _$setThemeDataAsyncAction =
+      AsyncAction('_AppControllerBase.setThemeData');
+
+  @override
+  Future setThemeData(ThemeMode themeMode, {bool saveShared = true}) {
+    return _$setThemeDataAsyncAction
+        .run(() => super.setThemeData(themeMode, saveShared: saveShared));
   }
 
   @override
   String toString() {
     return '''
-value: ${value}
+themeApp: ${themeApp}
     ''';
   }
 }
