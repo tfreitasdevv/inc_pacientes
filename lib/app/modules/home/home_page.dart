@@ -2,7 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:incpacientes/app/shared/constants.dart';
+import '../../shared/constants.dart';
+import '../../shared/constants.dart';
 import 'home_controller.dart';
 
 class HomePage extends StatefulWidget {
@@ -34,59 +35,159 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
 
   @override
   Widget build(BuildContext context) {
+    double alturaStatus = MediaQuery.of(context).padding.top;
     double alturaTela = MediaQuery.of(context).size.height;
+    double larguraTela = MediaQuery.of(context).size.width;
+
     bool web = kIsWeb;
 
     return Scaffold(
         key: _scaffoldKey,
-        backgroundColor: cinzaBG,
-        body: Stack(
-          children: [
-            Align(
-              alignment: Alignment.topCenter,
-              child: Image.asset(barraSuperior1),
-            ),
-            Container(
-                padding: EdgeInsets.fromLTRB(24, 24, 24, 24),
-                child: Center(
-                  child: SingleChildScrollView(
-                    child: Form(
-                        key: _formKey,
-                        child: Column(
-                          children: [
-                            TextFormField(
-                              controller: _emailController,
-                              keyboardType: TextInputType.emailAddress,
-                              decoration: InputDecoration(
-                                  filled: true,
-                                  fillColor: vermelhoLogo,
-                                  contentPadding: EdgeInsets.symmetric(
-                                      horizontal: 24, vertical: 12),
-                                  hintText: "E-mail",
-                                  hintStyle: TextStyle(color: Colors.white),
-                                  border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(32))),
-                            ),
-                            SizedBox(height: 12),
-                            TextFormField(
-                              controller: _senhaController,
-                              keyboardType: TextInputType.emailAddress,
-                              obscureText: true,
-                              decoration: InputDecoration(
-                                  filled: true,
-                                  fillColor: vermelhoLogo,
-                                  contentPadding: EdgeInsets.symmetric(
-                                      horizontal: 24, vertical: 12),
-                                  hintText: "Senha",
-                                  hintStyle: TextStyle(color: Colors.white),
-                                  border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(32))),
-                            )
-                          ],
-                        )),
-                  ),
-                ))
-          ],
+        backgroundColor: Colors.white,
+        body: SingleChildScrollView(
+          child: Stack(
+            children: [
+              Container(
+                padding: EdgeInsets.all(24),
+                height: alturaTela,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage(bg2), fit: BoxFit.cover)),
+              ),
+              Container(
+                padding: EdgeInsets.all(24),
+                child: Column(
+                  children: [
+                    Container(
+                      height: alturaTela * 0.26,
+                    ),
+                    _buildCorpoHome()
+                  ],
+                ),
+              )
+            ],
+          ),
         ));
+  }
+
+  _buildCorpoHome() {
+    double sizedBoxAltura = 12;
+    return Container(
+      // height: alturaTela*0.74,
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Form(
+                key: _formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    TextFormField(
+                      controller: _emailController,
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: InputDecoration(
+                          filled: false,
+                          fillColor: vermelhoLogo,
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: 24, vertical: 12),
+                          hintText: "E-mail",
+                          hintStyle: TextStyle(color: pretoLogoEscuro),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(32))),
+                    ),
+                    SizedBox(height: sizedBoxAltura),
+                    TextFormField(
+                      controller: _senhaController,
+                      keyboardType: TextInputType.emailAddress,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                          filled: false,
+                          fillColor: vermelhoLogo,
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: 24, vertical: 12),
+                          hintText: "Senha",
+                          hintStyle: TextStyle(color: pretoLogoEscuro),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(32))),
+                    ),
+                    SizedBox(height: sizedBoxAltura),
+                    RaisedButton(
+                      onPressed: () {},
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 18, vertical: 12),
+                      color: vermelhoLogo,
+                      child: Text(
+                        'Entrar',
+                        style: TextStyle(color: Colors.white, fontSize: 16),
+                      ),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(32)),
+                    ),
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: FlatButton(
+                        onPressed: () {},
+                        child: Text(
+                          'Esqueceu a senha?',
+                          style: TextStyle(color: pretoLogoClaro, fontSize: 14),
+                        ),
+                      ),
+                    ),
+                    _divider(),
+                    RaisedButton(
+                      onPressed: () {},
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 18, vertical: 12),
+                      color: pretoLogoClaro,
+                      child: Text(
+                        'Entrar como visitante',
+                        style: TextStyle(color: Colors.white, fontSize: 16),
+                      ),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(32)),
+                    ),
+                    SizedBox(height: sizedBoxAltura * 8),
+                    FlatButton(
+                        onPressed: () {},
+                        child: Text("Novo no aplicativo? Crie aqui sua conta!"))
+                  ],
+                )),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _divider() {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 10),
+      child: Row(
+        children: <Widget>[
+          SizedBox(
+            width: 20,
+          ),
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: Divider(
+                thickness: 2,
+              ),
+            ),
+          ),
+          Text('ou'),
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: Divider(
+                thickness: 2,
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 20,
+          ),
+        ],
+      ),
+    );
   }
 }

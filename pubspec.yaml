@@ -26,6 +26,25 @@ dev_dependencies:
 flutter:
 
   uses-material-design: true
+  
+  fonts:
+    - family: RedHatDisplay
+      fonts:
+        - asset: assets/fonts/RedHatDisplay-Regular.ttf
+        - asset: assets/fonts/RedHatDisplay-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/RedHatDisplay-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/RedHatDisplay-Black.ttf
+          weight: 900
+
+    - family: RedHatText
+      fonts:
+        - asset: assets/fonts/RedHatText-Regular.ttf
+        - asset: assets/fonts/RedHatText-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/RedHatText-Medium.ttf
+          weight: 500
 
   assets:
     - assets/images/
