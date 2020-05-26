@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import '../../shared/constants.dart';
+import '../../shared/constants.dart';
+import '../../shared/constants.dart';
+import '../../shared/constants.dart';
+import '../../shared/constants.dart';
+import '../../shared/constants.dart';
 import 'login_controller.dart';
 
 class LoginPage extends StatefulWidget {
@@ -34,11 +39,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
 
   @override
   Widget build(BuildContext context) {
-    double alturaStatus = MediaQuery.of(context).padding.top;
     double alturaTela = MediaQuery.of(context).size.height;
-    double larguraTela = MediaQuery.of(context).size.width;
-
-    bool web = kIsWeb;
 
     return Scaffold(
         key: _scaffoldKey,
@@ -152,7 +153,10 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                     ),
                     SizedBox(height: sizedBoxAltura),
                     FlatButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          //Modular.to.pushNamed('/cadastro');
+                          _dialogoCadastrar();
+                        },
                         child: Text("Novo no aplicativo? Crie aqui sua conta!"))
                   ],
                 )),
@@ -193,5 +197,90 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
         ],
       ),
     );
+  }
+
+  _dialogoCadastrar() {
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (context) {
+          return WillPopScope(
+            onWillPop: () async => false,
+            child: AlertDialog(
+              scrollable: true,
+              titleTextStyle: TextStyle(
+                  color: pretoLogoEscuro,
+                  fontWeight: FontWeight.bold,
+                  fontSize: MediaQuery.of(context).size.width > 400 ? 20 : 18),
+              elevation: 8,
+              contentTextStyle: TextStyle(
+                  color: pretoLogoEscuro,
+                  fontSize: MediaQuery.of(context).size.width > 400 ? 16 : 14),
+              actions: <Widget>[
+                Align(
+                  alignment: Alignment.center,
+                  child: RaisedButton(
+                      elevation: 4,
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 18, vertical: 12),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(32)),
+                      color: vermelhoLogoEscuro,
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                        Modular.to.pushNamed('/cadastro');
+                      },
+                      child: Text(
+                        "PROSSEGUIR COM CADASTRO",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14),
+                      )),
+                ),
+                SizedBox(height: 8),
+                Align(
+                  alignment: Alignment.center,
+                  child: RaisedButton(
+                      elevation: 4,
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 18, vertical: 12),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(32)),
+                      color: pretoLogoClaro,
+                      onPressed: () {
+                        //Modular.to.pushReplacementNamed('/signup');
+                        Navigator.of(context).pop();
+                      },
+                      child: Text(
+                        "ACESSAR COMO VISITANTE",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14),
+                      )),
+                ),
+                SizedBox(height: 8),
+                Align(
+                  alignment: Alignment.center,
+                  child: FlatButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Text(
+                        "VOLTAR",
+                        style: TextStyle(
+                            color: pretoLogoClaro, fontWeight: FontWeight.bold),
+                      )),
+                ),
+              ],
+              title: Text("AVISO IMPORTANTE", textAlign: TextAlign.center),
+              content: Text(
+                "Antes de prosseguir, é importante que você saiba que somente pacientes com prontuário no INC terão acesso à realização do cadastro.\n\nCaso você não seja um paciente do INC, fique à vontade para navegar em nosso Aplicativo como Visitante!",
+                textAlign: TextAlign.justify,
+              ),
+            ),
+          );
+        });
   }
 }
