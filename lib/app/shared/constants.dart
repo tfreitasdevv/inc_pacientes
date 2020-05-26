@@ -1,6 +1,8 @@
 //Imagens do Asset
 import 'package:flutter/material.dart';
 
+const String bgSemBarra = 'assets/images/bg1080x2220semBarraSuperior.jpg';
+const String barraSuperior = 'assets/images/barraSuperiorA7Cropped.png';
 const String bg0 = 'assets/images/bg768x1280.jpg';
 const String bg1 = 'assets/images/bg1080x1920.jpg';
 const String bg2 = 'assets/images/bg1080x2220.jpg';

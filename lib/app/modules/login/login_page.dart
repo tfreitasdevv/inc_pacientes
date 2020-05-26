@@ -51,8 +51,11 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                 height: alturaTela,
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage(bg1), fit: BoxFit.cover)),
+                        image: AssetImage(bgSemBarra), fit: BoxFit.cover)),
               ),
+              Align(
+                  alignment: Alignment.topCenter,
+                  child: Image.asset(barraSuperior)),
               Container(
                 padding: EdgeInsets.all(24),
                 child: Column(
