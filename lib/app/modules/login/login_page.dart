@@ -3,11 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import '../../shared/constants.dart';
-import '../../shared/constants.dart';
-import '../../shared/constants.dart';
-import '../../shared/constants.dart';
-import '../../shared/constants.dart';
-import '../../shared/constants.dart';
 import 'login_controller.dart';
 
 class LoginPage extends StatefulWidget {
@@ -225,7 +220,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                           EdgeInsets.symmetric(horizontal: 18, vertical: 12),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(32)),
-                      color: vermelhoLogoEscuro,
+                      color: vermelhoLogo,
                       onPressed: () {
                         Navigator.of(context).pop();
                         Modular.to.pushNamed('/cadastro');
