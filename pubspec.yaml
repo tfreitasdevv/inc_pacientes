@@ -10,11 +10,15 @@ dependencies:
   dio: ^3.0.9
   sticky_headers: "^0.1.8"
   flutter_mobx: ^1.1.0
-  mobx: ^1.2.0
-  flutter_modular: ^1.2.1
+  mobx: ^1.2.1
+  flutter_modular: ^1.2.5+1
   shared_preferences: ^0.5.7+3
   intl: ^0.16.1
   mask_text_input_formatter: ^1.0.6
+  flutter_staggered_animations: ^0.1.2
+  flutter_icons: ^1.1.0
+  url_launcher: ^5.4.10
+  url_launcher_web: ^0.1.1+6
   flutter:
     sdk: flutter
 

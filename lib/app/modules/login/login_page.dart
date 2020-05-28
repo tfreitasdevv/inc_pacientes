@@ -110,7 +110,9 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                     ),
                     SizedBox(height: sizedBoxAltura),
                     RaisedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Modular.to.pushNamed('/home');
+                      },
                       padding:
                           EdgeInsets.symmetric(horizontal: 18, vertical: 12),
                       color: vermelhoLogo,
