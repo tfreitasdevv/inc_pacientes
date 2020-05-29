@@ -45,7 +45,10 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
             physics: BouncingScrollPhysics(),
             padding: EdgeInsets.all(16),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, crossAxisSpacing: 12, mainAxisSpacing: 12),
+                childAspectRatio: 1,
+                crossAxisCount: 2,
+                crossAxisSpacing: 12,
+                mainAxisSpacing: 12),
             itemCount: 14,
             itemBuilder: (context, index) {
               return AnimationConfiguration.staggeredGrid(
@@ -54,7 +57,9 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                   columnCount: 2,
                   child: ScaleAnimation(
                       child: HomeItemCard(
-                          titulo: "Teste", imagem: logoBranca, funcao: () {})));
+                          titulo: "Acompanhamento de Pacientes Graves",
+                          imagem: iconAcompanhamento,
+                          funcao: () {})));
             }),
       ),
     );
@@ -73,7 +78,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
       child: Column(
         children: [
           UserAccountsDrawerHeader(
-              decoration: BoxDecoration(color: pretoLogoClaro),
+              decoration: BoxDecoration(color: azulCinzaEscuro),
               currentAccountPicture: Image.asset(logoBranca),
               accountName: Text("Nome do Usuário"),
               accountEmail: Text("usuario@email.com"))
