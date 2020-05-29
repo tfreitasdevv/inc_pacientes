@@ -45,7 +45,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
             physics: BouncingScrollPhysics(),
             padding: EdgeInsets.all(16),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                childAspectRatio: 1,
+                childAspectRatio: 1.2,
                 crossAxisCount: 2,
                 crossAxisSpacing: 12,
                 mainAxisSpacing: 12),
@@ -53,11 +53,11 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
             itemBuilder: (context, index) {
               return AnimationConfiguration.staggeredGrid(
                   position: index,
-                  duration: Duration(milliseconds: 375),
+                  duration: Duration(milliseconds: 500),
                   columnCount: 2,
                   child: ScaleAnimation(
                       child: HomeItemCard(
-                          titulo: "Acompanhamento de Pacientes Graves",
+                          titulo: "Acompanhamento de Pacientes",
                           imagem: iconAcompanhamento,
                           funcao: () {})));
             }),
