@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "509862270302",
+    "firebase_url": "https://inc-pacientes.firebaseio.com",
+    "project_id": "inc-pacientes",
+    "storage_bucket": "inc-pacientes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:509862270302:android:d433869c17115410ea2bcf",
+        "android_client_info": {
+          "package_name": "br.gov.inc.incpacientes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "509862270302-qkahfm03oudm5l5geud69f5kru5qqe3o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlAJ-noBeI6_IOUPGs8uoj-h4WlRgIHGc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "509862270302-qkahfm03oudm5l5geud69f5kru5qqe3o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

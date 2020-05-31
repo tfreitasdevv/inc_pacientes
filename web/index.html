@@ -18,6 +18,10 @@
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
+  <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-storage.js"></script>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
@@ -27,6 +31,22 @@
         navigator.serviceWorker.register('flutter_service_worker.js');
       });
     }
+  </script>
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyDBz3IAyUfdoPJprAacLQHD43TgEbooDxY",
+      authDomain: "inc-pacientes.firebaseapp.com",
+      databaseURL: "https://inc-pacientes.firebaseio.com",
+      projectId: "inc-pacientes",
+      storageBucket: "inc-pacientes.appspot.com",
+      messagingSenderId: "509862270302",
+      appId: "1:509862270302:web:bf0a0caf0629bc69ea2bcf",
+      measurementId: "G-4JLR5B73WZ"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
   </script>
   <script src="main.dart.js" type="application/javascript"></script>
 </body>
